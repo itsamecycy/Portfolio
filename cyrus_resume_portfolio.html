@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cyrus Bayquen | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      background: rgba(15, 23, 42, 0.95);
+      padding: 15px 10%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1000;
+    }
+
+    nav h2 {
+      color: #38bdf8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #38bdf8;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 100px 10%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .highlight {
+      color: #38bdf8;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .skills-list {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .skill {
+      background: #38bdf8;
+      color: black;
+      padding: 10px 18px;
+      border-radius: 20px;
+      font-weight: bold;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      border: none;
+      background: #38bdf8;
+      color: black;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #020617;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h2>Cyrus.dev</h2>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Hello, I'm <span class="highlight">Cyrus Bayquen</span></h1>
+    <p>Aspiring Software Developer & Computer Engineering Student</p>
+    <button onclick="showMessage()">View My Journey</button>
+  </section>
+
+  <section id="about">
+    <h1>About Me</h1>
+    <div class="card">
+      <p>
+        I am <strong>20 years old</strong> and currently a <strong>2nd Year College Student</strong>
+        taking <strong>Bachelor of Science in Computer Engineering</strong>.
+        I am passionate about software development, problem solving, and building applications.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h1>Education & Learning</h1>
+    <div class="card">
+      <p>Currently studying:</p>
+      <br>
+      <p>• C++ Programming</p>
+      <p>• Qt GUI Development</p>
+      <p>• Data Structures & Algorithms</p>
+      <p>• Software Design Principles</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h1>Technical Skills</h1>
+    <div class="skills-list">
+      <div class="skill">C++</div>
+      <div class="skill">Qt GUI</div>
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Problem Solving</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h1>My Goal</h1>
+    <div class="card">
+      <p>
+        My goal is to become a skilled software engineer who builds efficient,
+        meaningful, and innovative applications.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Cyrus Bayquen | Built with HTML, CSS & JavaScript</p>
+  </footer>
+
+  <script>
+    function showMessage() {
+      alert("Welcome to Cyrus Bayquen's portfolio website.");
+    }
+  </script>
+
+</body>
+</html>
