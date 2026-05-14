@@ -172,6 +172,26 @@
         transform: translateY(0);
       }
     }
+  
+    section {
+      transition: background 0.6s ease;
+    }
+
+    #about {
+      background: linear-gradient(135deg, rgba(30,41,59,0.55), rgba(15,23,42,0));
+    }
+
+    #education {
+      background: linear-gradient(225deg, rgba(30,41,59,0.45), rgba(15,23,42,0));
+    }
+
+    #skills {
+      background: linear-gradient(135deg, rgba(56,189,248,0.10), rgba(15,23,42,0));
+    }
+
+    #contact {
+      background: linear-gradient(225deg, rgba(56,189,248,0.10), rgba(15,23,42,0));
+    }
   </style>
 </head>
 <body>
@@ -192,7 +212,7 @@
     <button onclick="showMessage()">View My Journey</button>
   </section>
 
-  <section id="about" style="background: linear-gradient(to right, rgba(30,41,59,0.5), transparent);">
+  <section id="about">
     <h1>About Me</h1>
     <div class="card">
       <p>
@@ -203,7 +223,7 @@
     </div>
   </section>
 
-  <section id="education" style="background: linear-gradient(to left, rgba(30,41,59,0.4), transparent);">
+  <section id="education">
     <h1>Education & Learning</h1>
     <div class="card">
       <p>Currently studying:</p>
@@ -215,7 +235,7 @@
     </div>
   </section>
 
-  <section id="skills" style="background: linear-gradient(to right, rgba(56,189,248,0.08), transparent);">
+  <section id="skills">
     <h1>Technical Skills</h1>
     <div class="skills-list">
       <div class="skill"><a href="https://isocpp.org" target="_blank" style="text-decoration:none;color:inherit;">C++</a></div>
@@ -227,7 +247,7 @@
     </div>
   </section>
 
-  <section id="contact" style="background: linear-gradient(to left, rgba(56,189,248,0.08), transparent);">
+  <section id="contact">
     <h1>Contact & Goal</h1>
     <div class="card">
       <p>
