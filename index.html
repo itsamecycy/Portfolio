@@ -20,6 +20,8 @@
     }
 
     nav {
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
       position: fixed;
       width: 100%;
       top: 0;
@@ -41,9 +43,25 @@
     }
 
     nav ul li a {
+      position: relative;
       color: white;
       text-decoration: none;
       transition: 0.3s;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: #38bdf8;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     nav ul li a:hover {
@@ -104,6 +122,52 @@
       text-align: center;
       padding: 20px;
       background: #020617;
+    }
+  
+
+    .hero h1, h1 {
+      animation: fadeUp 1s ease;
+    }
+
+    .card, .skill {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(56,189,248,0.25);
+    }
+
+    .skill:hover {
+      transform: scale(1.08);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(56,189,248,0.15);
+      top: 20%;
+      right: 10%;
+      filter: blur(40px);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
