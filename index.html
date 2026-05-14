@@ -192,6 +192,41 @@
     #contact {
       background: linear-gradient(225deg, rgba(56,189,248,0.10), rgba(15,23,42,0));
     }
+  
+    .contact-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(56,189,248,0.25);
+    }
   </style>
 </head>
 <body>
@@ -251,7 +286,19 @@
     <h1>Contact & Goal</h1>
     <div class="card">
       <p>
-        Contact: cyrusbayquen22@gmail.com<br>GitHub: <a href="https://github.com/itsamecycy" target="_blank">https://github.com/itsamecycy</a><br><br>My goal is to become a skilled software engineer who builds efficient,
+        Feel free to reach out or check my profiles below.
+      </p>
+
+      <div class="contact-buttons">
+        <a class="btn btn-primary" href="mailto:cyrusbayquen22@gmail.com">✉ Email Me</a>
+        <a class="btn btn-primary" href="https://github.com/itsamecycy" target="_blank">🐙 GitHub</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/yourprofile" target="_blank">💼 LinkedIn</a>
+        <a class="btn btn-outline" href="#">📄 Download CV</a>
+      </div>
+
+      <br>
+      <p>
+        My goal is to become a skilled software engineer who builds efficient,
         meaningful, and innovative applications.
       </p>
     </div>
