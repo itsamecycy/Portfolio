@@ -5,7 +5,7 @@ import streamlit as st
 
 
 st.set_page_config(
-	page_title="Cyrus Bayquen | Aspiring Programmer",
+	page_title="Cyrus Bayquen | Aspiring Software Engineer",
 	page_icon="CB",
 	layout="wide",
 	initial_sidebar_state="collapsed",
@@ -17,22 +17,25 @@ st.markdown(
 	@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 	:root {
-		--paper: #f5f1e9;
-		--ink: #18202a;
-		--muted: #66707c;
-		--blue: #1459e6;
+		--paper: #0d1117;
+		--ink: #f2f5f8;
+		--muted: #9aa6b2;
+		--blue: #6ea8fe;
 		--yellow: #f3ca42;
-		--line: #d8d2c7;
-		--white: #fffdf8;
+		--line: #2a3542;
+		--white: #151c24;
 	}
 	.stApp { background: var(--paper); color: var(--ink); }
-	[data-testid="stHeader"] { background: rgba(245, 241, 233, 0.86); }
+	[data-testid="stHeader"] { background: rgba(13, 17, 23, 0.86); }
 	.block-container { max-width: 1160px; padding: 2rem 3rem 4rem; }
 	.mono, code, .eyebrow { font-family: 'DM Mono', monospace; }
 	.eyebrow { color: var(--blue); font-size: .74rem; letter-spacing: .09em; text-transform: uppercase; }
 	.topbar { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--line); padding-bottom: 1.2rem; margin-bottom: 3.6rem; }
 	.brand { font: 700 1.15rem 'Space Grotesk', sans-serif; letter-spacing: -.04em; }
 	.brand span { color: var(--blue); }
+	.nav-links { display: flex; gap: 1.2rem; }
+	.nav-links a { color: var(--muted); font: .72rem 'DM Mono', monospace; text-decoration: none; }
+	.nav-links a:hover { color: var(--blue); }
 	.availability { color: var(--muted); font: .74rem 'DM Mono', monospace; }
 	.availability b { color: #31915d; font-size: 1.2rem; vertical-align: -1px; }
 	.hero-copy { padding: 1rem 0 0; }
@@ -56,7 +59,7 @@ st.markdown(
 	.project-index { color: var(--blue); font: .75rem 'DM Mono', monospace; }
 	.project h3 { font: 600 1.45rem 'Space Grotesk', sans-serif; letter-spacing: -.04em; margin: 2.8rem 0 .7rem; }
 	.project p { color: var(--muted); line-height: 1.5; margin-bottom: 1.4rem; }
-	.tag { color: var(--ink); background: #e9efff; display: inline-block; font: .68rem 'DM Mono', monospace; margin: .18rem .2rem 0 0; padding: .38rem .55rem; }
+	.tag { color: #c8dcff; background: #1d355d; display: inline-block; font: .68rem 'DM Mono', monospace; margin: .18rem .2rem 0 0; padding: .38rem .55rem; }
 	.about-copy { color: var(--muted); font: 1.15rem/1.65 'Space Grotesk', sans-serif; max-width: 620px; }
 	.about-copy em { color: var(--blue); font-style: normal; }
 	.facts { border-left: 2px solid var(--yellow); padding-left: 1.2rem; color: var(--muted); font: .82rem/2 'DM Mono', monospace; }
@@ -65,6 +68,7 @@ st.markdown(
 	.contact h2 { color: white; }
 	.contact p { color: #cbdcff; margin: .5rem 0 0; }
 	.contact a { color: var(--ink); background: var(--yellow); font: 500 .8rem 'DM Mono', monospace; padding: .8rem 1rem; text-decoration: none; white-space: nowrap; }
+	.contact .nav-links { flex-wrap: wrap; justify-content: flex-end; }
 	.footer { color: var(--muted); border-top: 1px solid var(--line); font: .7rem 'DM Mono', monospace; margin-top: 2rem; padding-top: 1.2rem; }
 	@media (max-width: 700px) { .block-container { padding: 1.2rem 1.2rem 3rem; } .topbar { margin-bottom: 2.5rem; } .availability { display: none; } .terminal { margin-top: 2.5rem; } .section, .contact { margin-top: 4rem; } .contact { align-items: flex-start; flex-direction: column; } }
 	</style>
@@ -76,12 +80,12 @@ st.markdown(
 	"""
 	<div class="topbar">
 		<div class="brand">CYRUS<span>.</span>BAYQUEN</div>
-		<div class="availability"><b>•</b>&nbsp; OPEN TO OPPORTUNITIES</div>
+		<div class="nav-links"><a href="https://github.com/itsamecycy" target="_blank">GITHUB ↗</a><a href="mailto:cyrusbayquen22@gmail.com">EMAIL ↗</a></div>
 	</div>
 	<div class="hero-copy">
-		<div class="eyebrow">Aspiring programmer / builder</div>
+		<div class="eyebrow">Aspiring software engineer</div>
 		<h1>Cyrus<br>Bayquen<span style="color:#1459e6">.</span></h1>
-		<p>I am learning to turn curious questions into <strong>useful, thoughtful software.</strong> This is a small collection of what I am building, studying, and exploring.</p>
+		<p>I am learning to turn curious questions into <strong>useful, thoughtful software.</strong> This is a small collection of what I am building, studying, and exploring as I grow toward software engineering.</p>
 	</div>
 	""",
 	unsafe_allow_html=True,
@@ -92,7 +96,7 @@ with hero_left:
 	st.markdown(
 		"""
 		<div class="facts" style="margin-top:2rem">
-			<div><b>FOCUS</b>&nbsp;&nbsp; Python · web apps · data</div>
+			<div><b>FOCUS</b>&nbsp;&nbsp; Python · software · data</div>
 			<div><b>BASED</b>&nbsp;&nbsp; Philippines</div>
 			<div><b>STATUS</b>&nbsp; Building in public</div>
 		</div>
@@ -132,8 +136,9 @@ for column, (index, title, description, tags) in zip(project_columns, projects):
 
 st.markdown('<div class="section" id="about"><div class="section-title"><h2>A little about me</h2><span class="number">02 / ABOUT</span></div></div>', unsafe_allow_html=True)
 about_left, about_right = st.columns([1.3, .7], gap="large")
+
 with about_left:
-	st.markdown('<div class="about-copy">I am an aspiring programmer who enjoys the moment an idea becomes something you can click, test, and improve. I am currently deepening my foundations in <em>Python</em>, exploring data, and practicing how to make digital tools feel clear and human.</div>', unsafe_allow_html=True)
+	st.markdown('<div class="about-copy">I am an aspiring software engineer who enjoys the moment an idea becomes something you can click, test, and improve. I am currently deepening my foundations in <em>Python</em>, exploring data, and practicing how to make software feel clear and human.</div>', unsafe_allow_html=True)
 with about_right:
 	st.markdown('<div class="facts"><div><b>01</b>&nbsp; Stay curious</div><div><b>02</b>&nbsp; Make it useful</div><div><b>03</b>&nbsp; Keep improving</div></div>', unsafe_allow_html=True)
 
@@ -146,7 +151,7 @@ st.markdown(
 	"""
 	<div class="contact" id="contact">
 		<div><h2>Let's build something.</h2><p>Have an idea, question, or opportunity?</p></div>
-		<a href="mailto:cyrus.bayquen@example.com">GET IN TOUCH ↗</a>
+		<div class="nav-links"><a href="https://github.com/itsamecycy" target="_blank">GITHUB ↗</a><a href="mailto:cyrusbayquen22@gmail.com">cyrusbayquen22@gmail.com ↗</a></div>
 	</div>
 	<div class="footer">© 2026 CYRUS BAYQUEN <span style="float:right">MADE WITH PYTHON + STREAMLIT</span></div>
 	""",
