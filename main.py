@@ -1,3 +1,4 @@
+import base64
 import os
 
 import pandas as pd
@@ -56,6 +57,11 @@ st.markdown(
 	.number { color: var(--blue); font: .75rem 'DM Mono', monospace; }
 	.project { background: var(--white); border: 1px solid var(--line); padding: 1.5rem; min-height: 260px; transition: transform .2s ease; }
 	.project:hover { transform: translateY(-5px); }
+	.project-logo-wrap { height: 105px; margin: -1rem -1rem 1rem; overflow: hidden; }
+	.project-logo { height: 100%; object-fit: contain; transform: scale(1); transition: transform .3s ease; width: 100%; }
+	.project:hover .project-logo { transform: scale(1.08); }
+	.project h3 a { color: inherit; text-decoration: none; }
+	.project-hint { color: var(--muted); font: .68rem 'DM Mono', monospace; margin: -.35rem 0 1rem; }
 	.project-index { color: var(--blue); font: .75rem 'DM Mono', monospace; }
 	.project h3 { font: 600 1.45rem 'Space Grotesk', sans-serif; letter-spacing: -.04em; margin: 2.8rem 0 .7rem; }
 	.project p { color: var(--muted); line-height: 1.5; margin-bottom: 1.4rem; }
@@ -124,15 +130,22 @@ with hero_right:
 
 st.markdown('<div class="section" id="work"><div class="section-title"><h2>Selected work</h2><span class="number">01 / PROJECTS</span></div></div>', unsafe_allow_html=True)
 project_columns = st.columns(3, gap="medium")
+logo_path = os.path.join("static", "pirate_adventure_logo.png")
+with open(logo_path, "rb") as logo_file:
+	logo_src = "data:image/png;base64," + base64.b64encode(logo_file.read()).decode("ascii")
 projects = [
-	("01", "Language tracker", "A first data project for comparing programming languages and measuring progress over time.", ["Python", "Pandas", "Streamlit"]),
-	("02", "Weather explorer", "A compact dashboard that turns raw weather records into something easier to read and understand.", ["Python", "Data viz", "CSV"]),
-	("03", "Next experiment", "A space reserved for the next idea: small in scope, useful in practice, and shipped with care.", ["Learning", "Building", "Iteration"]),
+	("01", "Grand Line", "A pirate adventure game based on the Pirates of the Caribbean franchise with pokémon mechanics. Built with python and pygame.", ["Python", "Pygame"], "https://github.com/itsamecycy/Pirate_Adventure", logo_src),
+	("02", "Weather explorer", "A compact dashboard that turns raw weather records into something easier to read and understand.", ["Python", "Data viz", "CSV"], None, None),
+	("03", "Next experiment", "A space reserved for the next idea: small in scope, useful in practice, and shipped with care.", ["Learning", "Building", "Iteration"], None, None),
 ]
-for column, (index, title, description, tags) in zip(project_columns, projects):
+for column, (index, title, description, tags, url, logo) in zip(project_columns, projects):
 	with column:
 		tag_markup = "".join(f'<span class="tag">{tag}</span>' for tag in tags)
-		st.markdown(f'<div class="project"><div class="project-index">{index} — 2026</div><h3>{title}</h3><p>{description}</p>{tag_markup}</div>', unsafe_allow_html=True)
+		title_markup = f'<a href="{url}" target="_blank">{title}</a>' if url else title
+		hint_markup = '<div class="project-hint">Click title to view repo ↗</div>' if url else ''
+		logo_markup = f'<div class="project-logo-wrap"><img class="project-logo" src="{logo}" alt="{title} logo"></div>' if logo else ''
+		project_markup = f'<div class="project">{logo_markup}<div class="project-index">{index} — 2026</div><h3>{title_markup}</h3>{hint_markup}<p>{description}</p>{tag_markup}</div>'
+		st.markdown(project_markup, unsafe_allow_html=True)
 
 st.markdown('<div class="section" id="about"><div class="section-title"><h2>A little about me</h2><span class="number">02 / ABOUT</span></div></div>', unsafe_allow_html=True)
 about_left, about_right = st.columns([1.3, .7], gap="large")
