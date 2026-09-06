@@ -135,7 +135,7 @@ with open(logo_path, "rb") as logo_file:
 	logo_src = "data:image/png;base64," + base64.b64encode(logo_file.read()).decode("ascii")
 projects = [
 	("01", "Grand Line", "A pirate adventure game based on the Pirates of the Caribbean franchise with pokémon mechanics. Built with python and pygame.", ["Python", "Pygame"], "https://github.com/itsamecycy/Pirate_Adventure", logo_src),
-	("02", "Weather explorer", "A compact dashboard that turns raw weather records into something easier to read and understand.", ["Python", "Data viz", "CSV"], None, None),
+	("02", "HIT", "A 3d shooting game built with c++ and raylib. Currently in development.", ["C/C++", "Raylib"], "https://github.com/itsamecycy/HIT", None),
 	("03", "Next experiment", "A space reserved for the next idea: small in scope, useful in practice, and shipped with care.", ["Learning", "Building", "Iteration"], None, None),
 ]
 for column, (index, title, description, tags, url, logo) in zip(project_columns, projects):
