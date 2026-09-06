@@ -160,6 +160,16 @@ language_data = pd.read_csv(language_csv)
 with st.expander("View my current learning snapshot"):
 	st.dataframe(language_data, use_container_width=True, hide_index=True)
 
+st.markdown('<div class="section" id="achievements"><div class="section-title"><h2>Achievements</h2><span class="number">03 / CERTIFICATES</span></div></div>', unsafe_allow_html=True)
+certificates = [
+	("Python Certificate", os.path.join("static", "Python_cert.pdf")),
+	("Cybersecurity Certificate", os.path.join("static", "cybersecurity_cert.pdf")),
+]
+for title, certificate_path in certificates:
+	with st.expander(title):
+		with open(certificate_path, "rb") as certificate_file:
+			st.pdf(certificate_file.read(), height=700)
+
 st.markdown(
 	"""
 	<div class="contact" id="contact">

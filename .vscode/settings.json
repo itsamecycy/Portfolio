@@ -1,3 +1,9 @@
 {
-    "python-envs.defaultEnvManager": "ms-python.python:venv"
+    "python-envs.defaultEnvManager": "ms-python.python:venv",
+    "chat.tools.terminal.autoApprove": {
+        "/^python -c \"import streamlit as st; print\\(st\\.__version__\\); print\\(hasattr\\(st, 'pdf'\\)\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }
