@@ -3,6 +3,7 @@ import os
 
 import pandas as pd
 import streamlit as st
+import streamlit.components.v1 as components
 
 
 st.set_page_config(
@@ -168,7 +169,13 @@ certificates = [
 for title, certificate_path in certificates:
 	with st.expander(title):
 		with open(certificate_path, "rb") as certificate_file:
-			st.pdf(certificate_file.read(), height=700)
+			certificate_data = base64.b64encode(certificate_file.read()).decode("ascii")
+			components.html(
+				f'<iframe src="data:application/pdf;base64,{certificate_data}" '
+				'width="100%" height="700" style="border: 0;"></iframe>',
+				height=720,
+				scrolling=True,
+			)
 
 st.markdown(
 	"""
