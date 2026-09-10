@@ -76,7 +76,30 @@ st.markdown(
 	.contact a { color: var(--ink); background: var(--yellow); font: 500 .8rem 'DM Mono', monospace; padding: .8rem 1rem; text-decoration: none; white-space: nowrap; }
 	.contact .nav-links { flex-wrap: wrap; justify-content: flex-end; }
 	.footer { color: var(--muted); border-top: 1px solid var(--line); font: .7rem 'DM Mono', monospace; margin-top: 2rem; padding-top: 1.2rem; }
-	@media (max-width: 700px) { .block-container { padding: 1.2rem 1.2rem 3rem; } .topbar { margin-bottom: 2.5rem; } .availability { display: none; } .terminal { margin-top: 2.5rem; } .section, .contact { margin-top: 4rem; } .contact { align-items: flex-start; flex-direction: column; } }
+	.controller-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; opacity: .66; background-image: repeating-linear-gradient(-18deg, transparent 0 56px, rgba(110, 168, 254, .075) 57px 59px, transparent 60px 112px); background-size: 224px 224px; animation: wave-sweep 16s linear infinite; }
+	.controller-bg::before, .controller-bg::after { border: 1px solid rgba(110, 168, 254, .22); border-radius: 50%; content: ''; position: absolute; }
+	.controller-bg::before { width: 36rem; height: 36rem; right: -12rem; top: 8rem; animation: drift 18s ease-in-out infinite; }
+	.controller-bg::after { width: 25rem; height: 25rem; left: -10rem; bottom: 4rem; border-color: rgba(243, 202, 66, .1); animation: drift 23s ease-in-out infinite reverse; }
+	.controller-button { align-items: center; border: 1px solid rgba(110, 168, 254, .62); border-radius: 50%; color: rgba(135, 184, 255, .96); display: flex; font: 500 1.1rem 'DM Mono', monospace; height: 3.2rem; justify-content: center; position: absolute; width: 3.2rem; animation: button-float 6s ease-in-out infinite; will-change: transform; }
+	.controller-button:nth-child(1) { right: 12%; top: 22%; }
+	.controller-button:nth-child(2) { animation-delay: -1.6s; right: 18%; top: 31%; }
+	.controller-button:nth-child(3) { animation-delay: -3.2s; bottom: 24%; left: 13%; }
+	.controller-button:nth-child(4) { animation-delay: -4.1s; bottom: 15%; left: 20%; color: rgba(243, 202, 66, .6); border-color: rgba(243, 202, 66, .28); }
+	.controller-button:nth-child(5) { animation-delay: -.8s; right: 31%; top: 15%; }
+	.controller-button:nth-child(6) { animation-delay: -2.4s; right: 6%; bottom: 20%; color: rgba(243, 202, 66, .65); border-color: rgba(243, 202, 66, .3); }
+	.controller-button:nth-child(7) { animation-delay: -3.7s; left: 7%; top: 28%; }
+	.controller-button:nth-child(8) { animation-delay: -5s; left: 29%; bottom: 11%; color: rgba(243, 202, 66, .65); border-color: rgba(243, 202, 66, .3); }
+	.controller-button:nth-child(9) { animation-delay: -1.2s; right: 38%; bottom: 28%; }
+	.controller-button:nth-child(10) { animation-delay: -2.8s; right: 3%; top: 44%; color: rgba(243, 202, 66, .65); border-color: rgba(243, 202, 66, .3); }
+	.controller-button:nth-child(11) { animation-delay: -4.4s; left: 36%; top: 25%; }
+	.controller-button:nth-child(12) { animation-delay: -5.5s; left: 3%; bottom: 38%; color: rgba(243, 202, 66, .65); border-color: rgba(243, 202, 66, .3); }
+	.controller-button.small { font-size: .58rem; height: 2.4rem; width: 2.4rem; }
+	.page-content { position: relative; z-index: 1; }
+	@keyframes wave-sweep { from { background-position: 0 0; } to { background-position: 224px 224px; } }
+	@keyframes drift { 0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); } 50% { transform: translate3d(4rem, -3rem, 0) rotate(18deg); } }
+	@keyframes button-float { 0%, 100% { box-shadow: 0 0 0 rgba(110, 168, 254, 0); transform: translate3d(0, 0, 0) rotate(0deg); } 50% { box-shadow: 0 0 28px rgba(110, 168, 254, .2); transform: translate3d(0, -1.2rem, 0) rotate(16deg); } }
+	@media (prefers-reduced-motion: reduce) { .controller-button, .controller-bg::before, .controller-bg::after { animation: none; } }
+	@media (max-width: 700px) { .block-container { padding: 1.2rem 1.2rem 3rem; } .topbar { margin-bottom: 2.5rem; } .availability { display: none; } .terminal { margin-top: 2.5rem; } .section, .contact { margin-top: 4rem; } .contact { align-items: flex-start; flex-direction: column; } .controller-bg { opacity: .42; } .controller-button:nth-child(1) { right: 4%; top: 18%; } .controller-button:nth-child(2) { right: 12%; top: 26%; } .controller-button:nth-child(3) { bottom: 18%; left: 4%; } .controller-button:nth-child(4) { bottom: 10%; left: 12%; } }
 	</style>
 	""",
 	unsafe_allow_html=True,
@@ -84,6 +107,21 @@ st.markdown(
 
 st.markdown(
 	"""
+	<div class="controller-bg" aria-hidden="true">
+		<div class="controller-button">&#9651;</div>
+		<div class="controller-button">&#9675;</div>
+		<div class="controller-button">&#10005;</div>
+		<div class="controller-button">&#9633;</div>
+		<div class="controller-button small">&#9651;</div>
+		<div class="controller-button small">&#9675;</div>
+		<div class="controller-button small">&#10005;</div>
+		<div class="controller-button small">&#9633;</div>
+		<div class="controller-button small">&#9651;</div>
+		<div class="controller-button small">&#9675;</div>
+		<div class="controller-button small">&#10005;</div>
+		<div class="controller-button small">&#9633;</div>
+	</div>
+	<div class="page-content">
 	<div class="topbar">
 		<div class="brand">CYRUS<span>.</span>BAYQUEN</div>
 		<div class="nav-links"><a href="https://github.com/itsamecycy" target="_blank">GITHUB ↗</a><a href="mailto:cyrusbayquen22@gmail.com">EMAIL ↗</a></div>
@@ -92,6 +130,7 @@ st.markdown(
 		<div class="eyebrow">Aspiring software engineer</div>
 		<h1>Cyrus<br>Bayquen<span style="color:#1459e6">.</span></h1>
 		<p>I am learning to turn curious questions into <strong>useful, thoughtful software.</strong> This is a small collection of what I am building, studying, and exploring as I grow toward software engineering.</p>
+	</div>
 	</div>
 	""",
 	unsafe_allow_html=True,
